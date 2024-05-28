@@ -35,16 +35,18 @@ class _AppBarExampleState extends State<AppBarExample> {
   Widget build(BuildContext context) {
     // final personSignal = signal(person);
 
-    // setName(String name, String lastName, int counter) {
-    //   final person = Person(name: personsData[counter]['name']!,lastName: personsData[counter]['lastName']!);personSignal.value = person;
-    //   personSignal.value = person;
-    // }
-
-    setName(String name, String lastName) {
-      final person = Person(name: name, lastName: 'Doe');
-
+    setName(String name, String lastName, int counter) {
+      final person = Person(
+          name: personsData[counter]['name']!,
+          lastName: personsData[counter]['lastName']!);
+      personSignal.value = person;
       personSignal.value = person;
     }
+
+    // setName(String name, String lastName) {
+    //   final person = Person(name: name, lastName: 'Doe');
+    //   personSignal.value = person;
+    // }
 
     return Scaffold(
       appBar: AppBar(
@@ -52,8 +54,8 @@ class _AppBarExampleState extends State<AppBarExample> {
         actions: <Widget>[
           IconButton(
             onPressed: () {
-              setName('Mike', 'Doe');
-              // setName('Mike', 'Doe', counterSignal.value);
+              // setName('Mike', 'Doe');
+              setName('Mike', 'Doe', counterSignal.value);
               counterSignal.value++;
               ScaffoldMessenger.of(context).clearSnackBars();
               ScaffoldMessenger.of(context).showSnackBar(
